@@ -1,0 +1,30 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.navbar__title {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar__title a {
+  color: darkgrey;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar__title a:hover,
+.navbar__title a:active,
+.navbar__title a.active {
+  color: #d68f1b;
+}
+
+.navbar h1 {
+  text-transform: uppercase;
+}

@@ -1,0 +1,22 @@
+.categorie {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  padding: 30px 0px;
+}
+
+.categorie__imgbox {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0px;
+  gap: 30px;
+}
+
+.categorie__imgbox img {
+  width: 100%;
+}
+.categorie__imgbox img:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.5s;
+}
