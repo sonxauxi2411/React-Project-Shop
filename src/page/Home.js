@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "../Component/Banner/Banner";
 import Categories from "../Component/Produts/Categories";
 import Information from "../Component/Produts/Information";
-import Produts from "../Component/Produts/Produts";
+import Products from "../Component/Produts/Products";
 import Subscribe from "../Component/Produts/Subscribe";
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
     <>
       <Banner />
       <Categories />
-      <Produts />
+      <Products />
       <Information />
       <Subscribe />
     </>

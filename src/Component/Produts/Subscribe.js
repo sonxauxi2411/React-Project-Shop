@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../Layout/UI/Button";
 import Card from "../../Layout/UI/Card";
 import style from "./Subscribe.module.css";
 
@@ -23,13 +24,8 @@ function Subscribe() {
               aria-label="Enter Your email address"
               aria-describedby="button-addon2"
             />
-            <button
-              className="btn btn-secondary"
-              type="button"
-              id="button-addon2"
-            >
-              Subscribe
-            </button>
+
+            <Button>Subscribe</Button>
           </div>
         </div>
       </div>

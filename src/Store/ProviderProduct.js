@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Context from "./Context";
 
-const Provider = (props) => {
+const ProviderProduct = (props) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -35,4 +35,4 @@ const Provider = (props) => {
   return <Context.Provider value={data}>{props.children}</Context.Provider>;
 };
 
-export default Provider;
+export default ProviderProduct;

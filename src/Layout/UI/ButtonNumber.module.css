@@ -1,0 +1,14 @@
+.ButtonNumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ButtonNumber span {
+  padding: 2px 7px;
+}
+
+.ButtonNumber button {
+  border: none;
+  background-color: white;
+}
