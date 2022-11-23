@@ -27,7 +27,7 @@ const Navbar = () => {
             <BsCartFill /> Cart
           </NavLink>
           <NavLink className={navbarClass} to="/login">
-            <BsFillPersonFill /> login
+            <BsFillPersonFill /> Login/SignUp
           </NavLink>
         </div>
       </div>
