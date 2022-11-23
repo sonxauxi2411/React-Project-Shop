@@ -6,10 +6,6 @@
   gap: 50px;
 }
 
-.detail img {
-  width: 600px;
-}
-
 .detail_info {
   display: flex;
   flex-direction: column;

@@ -8,6 +8,7 @@ import Context from "../Store/Context";
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
 import ButtonNumber from "../Layout/UI/ButtonNumber";
+import ProdutItem from "../Component/Produts/ProdutItem";
 
 function Detail() {
   const dataProduct = useContext(Context);
@@ -16,12 +17,27 @@ function Detail() {
   const product = dataProduct?.find(
     (item) => item._id.$oid === parama.detailId
   );
-  console.log(product?.long_desc);
+  console.log(product?.category);
+  const relatedProducts = dataProduct?.filter(
+    (item) => item.category === product?.category
+  );
+  console.log(relatedProducts);
   return (
     <Card>
       <div className={style.detail}>
         <div className={style.detail__title}>
-          <img src={product?.img1} alt={product?.name} />
+          <div className="d-flex">
+            <div>
+              <img src={product?.img2} width="100px" height="150px" />
+              <img src={product?.img3} width="100px" height="150px" />
+              <img src={product?.img4} width="100px" height="150px" />
+              <img src={product?.img1} width="100px" height="150px" />
+            </div>
+            <div>
+              <img src={product?.img1} alt={product?.name} width="600px" />
+            </div>
+          </div>
+
           <div className={style.detail_info}>
             <h1>{product?.name}</h1>
             <span>{formatCash(product?.price)} VND</span>
@@ -46,6 +62,22 @@ function Detail() {
 
           <p>Product Description</p>
           <span>{product?.long_desc}</span>
+        </div>
+        <div>
+          <h2>Related Product</h2>
+          <div className="d-flex align-items-center gap-4 py-4">
+            {relatedProducts?.map((item) => (
+              <div className="d-flex flex-column ">
+                <img src={item.img1} alt={item.name} width="200px" />
+                <div className="d-flex flex-column text-center w-75">
+                  <span>
+                    <strong>{item.name}</strong>
+                  </span>
+                  <span>{formatCash(item.price)} VND </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Card>
