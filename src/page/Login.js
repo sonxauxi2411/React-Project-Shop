@@ -1,10 +1,10 @@
 import React from "react";
-import BannerLogin from "../Component/Banner/BannerLogin";
+import RegisterForm from "../Layout/UI/RegisterForm";
 
 function Login() {
   return (
     <div>
-      <BannerLogin />
+
     </div>
   );
 }

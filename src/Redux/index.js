@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productSlice from "./productsItem";
-
+import usersSlice from "./user";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -21,7 +21,11 @@ const popupSlice = createSlice({
 
 export const popupActions = popupSlice.actions;
 const store = configureStore({
-  reducer: { popup: popupSlice.reducer, product: productSlice.reducer },
+  reducer: {
+    popup: popupSlice.reducer,
+    product: productSlice.reducer,
+    user: usersSlice.reducer
+  },
 });
 
 export default store;

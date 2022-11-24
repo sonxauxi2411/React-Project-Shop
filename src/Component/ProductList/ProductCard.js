@@ -2,7 +2,7 @@ import React from "react";
 import style from "./ProductCard.module.css";
 import { formatCash } from "../Hook/formtCash";
 import { useDispatch } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { productAction } from "../../Redux/productsItem";
 
 function ProductCard({ item }) {

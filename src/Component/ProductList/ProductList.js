@@ -15,7 +15,7 @@ function ProductList() {
     });
     setProducts(resutl);
   };
-  console.log(products);
+
 
   return (
     <React.Fragment>
