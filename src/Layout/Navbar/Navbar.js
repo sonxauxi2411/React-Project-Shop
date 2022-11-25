@@ -4,9 +4,12 @@ import style from "./Navbar.module.css";
 import Card from "../UI/Card";
 import { BsCartFill } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
+import { getTolocalStorage } from "../../Component/Hook/LocalStrong";
 
 const Navbar = () => {
-  //style active navbarlink
+
+  const user = getTolocalStorage('user')
+  console.log(user)
   const navbarClass = (navData) => (navData.isActive ? style.active : "");
   return (
     <Card>
@@ -26,9 +29,9 @@ const Navbar = () => {
           <NavLink className={navbarClass} to="/cart">
             <BsCartFill /> Cart
           </NavLink>
-          <NavLink className={navbarClass} to="/login">
+          {user ? <NavLink className={navbarClass} to="/login">
             <BsFillPersonFill /> Login/SignUp
-          </NavLink>
+          </NavLink> : <span>lol</span>}
         </div>
       </div>
     </Card>

@@ -1,31 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { saveToLocalStorage } from "../Component/Hook/LocalStorage";
+import { saveToLocalStorage } from "../Component/Hook/LocalStrong";
 
 const initialState = {
     user: {},
-    users: [{
-        name: 'son',
-        email: 'gaconbaby111@gmail.com',
-        password: '123456789',
-        phone: '0935834951'
-    }]
+    users: []
 }
 
-
-const usersSlice = createSlice({
+const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUser(state, action) {
-
-            state.user = action.payload
-        },
         addUser(state, action) {
-            saveToLocalStorage('users', state.users)
             state.users = [...state.users, action.payload]
+            saveToLocalStorage('userArr', state.users)
+        },
+        onLogin(state, action) {
+            state.user = action.payload
+            saveToLocalStorage('user', state.user)
         }
     }
+
+
 })
 
-export const usersAction = usersSlice.actions
-export default usersSlice
+export const userAction = userSlice.actions
+export default userSlice
