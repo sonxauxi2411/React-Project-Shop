@@ -1,6 +1,7 @@
 .footer {
   max-width: 1200px;
   padding: 50px 0px;
+  z-index: 2;
 }
 .footer a {
   color: white;
@@ -9,4 +10,8 @@
 }
 .footer a:hover {
   color: white;
+}
+.footer_bg{
+  background-color: rgba(0, 0, 0, 0.856);
+  z-index: 2;
 }

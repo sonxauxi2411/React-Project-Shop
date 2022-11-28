@@ -1,0 +1,16 @@
+.backgorund__banner{
+    width: 100%;
+    background-color:#767f86;
+    height: 300px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.backgorund__titile{
+    padding: 0px 100px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

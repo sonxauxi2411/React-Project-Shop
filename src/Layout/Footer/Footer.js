@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Card from "../UI/Card";
-import style from "./Footer.module.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Card from '../UI/Card'
+import style from './Footer.module.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Footer() {
   return (
-    <div className="bg-dark">
+    <div className={style.footer_bg}>
       <Card>
         <div className={`${style.footer} row w-100 `}>
           <div className="text-light d-flex flex-column col">
@@ -35,7 +35,7 @@ function Footer() {
         </div>
       </Card>
     </div>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

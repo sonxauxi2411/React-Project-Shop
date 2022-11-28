@@ -1,0 +1,8 @@
+.checkout__form input{
+    border: 1px solid rgba(0, 0, 0, 0.363);
+}
+
+.checkout {
+    max-width: 1200px;
+    width: 100%;
+}

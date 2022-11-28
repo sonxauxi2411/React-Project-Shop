@@ -1,30 +1,39 @@
-import React, { useContext, useState } from "react";
-import style from "./Detail.module.css";
-import { useParams } from "react-router-dom";
-import Button from "../Layout/UI/Button";
-import Card from "../Layout/UI/Card";
-import { formatCash } from "../Component/Hook/formtCash";
-import Context from "../Store/Context";
-
-import ButtonNumber from "../Layout/UI/ButtonNumber";
+import React, { useContext, useState } from 'react'
+import style from './Detail.module.css'
+import { useParams } from 'react-router-dom'
+import Button from '../Layout/UI/Button'
+import Card from '../Layout/UI/Card'
+import { formatCash } from '../Component/Hook/formtCash'
+import Context from '../Store/Context'
+import { cartListAction } from '../Redux/CartList'
+import { useDispatch, useSelector } from 'react-redux'
+import QuantityCounter from '../Layout/QuatityCounte/QuantityCounter'
 
 function Detail() {
-  const dataProduct = useContext(Context);
-  const parama = useParams();
-
-  const product = dataProduct?.find(
-    (item) => item._id.$oid === parama.detailId
-  );
+  const dataProduct = useContext(Context)
+  const parama = useParams()
+  const dispatch = useDispatch()
+  const product = dataProduct?.find((item) => item._id.$oid === parama.detailId)
 
   const relatedProducts = dataProduct?.filter(
-    (item) => item.category === product?.category
-  );
-  const [imgSrc, setImgSrc] = useState(product?.img1);
+    (item) => item.category === product?.category,
+  )
+  const [imgSrc, setImgSrc] = useState(product?.img1)
 
   const handlerImg = (e) => {
-    setImgSrc(e.target.src);
-  };
+    setImgSrc(e.target.src)
+  }
 
+  const handlerAddToCart = () => {
+    dispatch(
+      cartListAction.addCart({
+        name: product.name,
+        img: product.img1,
+        price: product.price,
+        id: product._id.$oid,
+      }),
+    )
+  }
   return (
     <Card>
       <div className={style.detail}>
@@ -74,11 +83,10 @@ function Detail() {
             </span>
             <div className={style.detail_btn}>
               <div className={style.detail_btn_page}>
-                <span>Quantity</span>
-                <ButtonNumber />
+                <span className="text-black-50">Quantity</span>
+                <QuantityCounter />
               </div>
-
-              <Button>Add to cart</Button>
+              <Button onClick={handlerAddToCart}>Add to cart</Button>
             </div>
           </div>
         </div>
@@ -108,7 +116,7 @@ function Detail() {
         </div>
       </div>
     </Card>
-  );
+  )
 }
 
-export default Detail;
+export default Detail

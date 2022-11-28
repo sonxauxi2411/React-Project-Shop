@@ -28,3 +28,12 @@
 .navbar h1 {
   text-transform: uppercase;
 }
+.navbar_login{
+  display: flex;
+  align-items: center;
+  color:darkgrey ;
+}
+.navbar_login span:last-child:hover{
+  color: #d68f1b;
+  cursor: pointer;
+}

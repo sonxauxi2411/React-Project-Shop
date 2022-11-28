@@ -20,7 +20,7 @@
 .form__login form h2{
     padding-bottom: 20px;
 }
-.form__login form input:nth-child(5){
+form__login.form__login form input:nth-child(5){
    margin-bottom: 20px;
    
    }

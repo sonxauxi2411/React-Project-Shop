@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import ProductList from "../Component/ProductList/ProductList";
+import ProductList from '../Component/ProductList/ProductList'
 
-import Card from "../Layout/UI/Card";
+import Card from '../Layout/UI/Card'
 
 function Shop() {
   return (
@@ -15,7 +15,7 @@ function Shop() {
         <ProductList />
       </div>
     </Card>
-  );
+  )
 }
 
-export default Shop;
+export default Shop

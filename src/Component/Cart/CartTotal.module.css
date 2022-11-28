@@ -1,0 +1,13 @@
+.cartTotal{
+    background-color: #e7e9eb;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cartTotal_box{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}

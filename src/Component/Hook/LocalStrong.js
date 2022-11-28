@@ -4,3 +4,6 @@ export const saveToLocalStorage = (key, item) => {
 export const getTolocalStorage = (key) => {
     return JSON.parse(localStorage.getItem(key))
 }
+export const removeTolocalStorage = (key) => {
+    localStorage.removeItem(key)
+}

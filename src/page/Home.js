@@ -1,9 +1,9 @@
-import React from "react";
-import Banner from "../Component/Banner/Banner";
-import Categories from "../Component/Produts/Categories";
-import Information from "../Component/Produts/Information";
-import Products from "../Component/Produts/Products";
-import Subscribe from "../Component/Produts/Subscribe";
+import React from 'react'
+import Banner from '../Component/Banner/Banner'
+import Categories from '../Component/Produts/Categories'
+import Information from '../Component/Produts/Information'
+import Products from '../Component/Produts/Products'
+import Subscribe from '../Component/Produts/Subscribe'
 
 function Home() {
   return (
@@ -14,7 +14,7 @@ function Home() {
       <Information />
       <Subscribe />
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

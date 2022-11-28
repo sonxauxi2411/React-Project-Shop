@@ -1,16 +1,23 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import style from "./Navbar.module.css";
-import Card from "../UI/Card";
-import { BsCartFill } from "react-icons/bs";
-import { BsFillPersonFill } from "react-icons/bs";
-import { getTolocalStorage } from "../../Component/Hook/LocalStrong";
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import style from './Navbar.module.css'
+import Card from '../UI/Card'
+import { BsCartFill } from 'react-icons/bs'
+import { FaCaretDown } from 'react-icons/fa'
+import { BsFillPersonFill } from 'react-icons/bs'
+import { getTolocalStorage } from '../../Component/Hook/LocalStrong'
+import { useDispatch, useSelector } from 'react-redux'
+import { userAction } from '../../Redux/user'
 
 const Navbar = () => {
-
+  const dispatch = useDispatch()
   const user = getTolocalStorage('user')
-  console.log(user)
-  const navbarClass = (navData) => (navData.isActive ? style.active : "");
+  const isValidUser = useSelector((state) => state.user.isValidUser)
+  const handlerLogout = () => {
+    dispatch(userAction.onLogout())
+  }
+
+  const navbarClass = (navData) => (navData.isActive ? style.active : '')
   return (
     <Card>
       <div className={style.navbar}>
@@ -29,13 +36,22 @@ const Navbar = () => {
           <NavLink className={navbarClass} to="/cart">
             <BsCartFill /> Cart
           </NavLink>
-          {user ? <NavLink className={navbarClass} to="/login">
-            <BsFillPersonFill /> Login/SignUp
-          </NavLink> : <span>lol</span>}
+          {!isValidUser ? (
+            <NavLink className={navbarClass} to="/login">
+              <BsFillPersonFill /> Login/SignUp
+            </NavLink>
+          ) : (
+            <div className={style.navbar_login}>
+              <BsFillPersonFill />
+              <span>{user?.name}</span>
+              <FaCaretDown />
+              <span onClick={handlerLogout}>(Logout)</span>
+            </div>
+          )}
         </div>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
