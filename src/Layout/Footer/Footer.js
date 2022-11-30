@@ -8,7 +8,7 @@ function Footer() {
   return (
     <div className={style.footer_bg}>
       <Card>
-        <div className={`${style.footer} row w-100 `}>
+        <div className={`${style.footer} row w-100 fst-italic`}>
           <div className="text-light d-flex flex-column col">
             <span className="text-uppercase py-2 fw-bold">
               Customer Services

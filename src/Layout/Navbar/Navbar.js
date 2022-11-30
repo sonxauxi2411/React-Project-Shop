@@ -5,14 +5,16 @@ import Card from '../UI/Card'
 import { BsCartFill } from 'react-icons/bs'
 import { FaCaretDown } from 'react-icons/fa'
 import { BsFillPersonFill } from 'react-icons/bs'
-import { getTolocalStorage } from '../../Component/Hook/LocalStrong'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { userAction } from '../../Redux/user'
 
 const Navbar = () => {
   const dispatch = useDispatch()
-  const user = getTolocalStorage('user')
+
   const isValidUser = useSelector((state) => state.user.isValidUser)
+  const user = useSelector((state) => state.user.user)
+
   const handlerLogout = () => {
     dispatch(userAction.onLogout())
   }
@@ -36,17 +38,17 @@ const Navbar = () => {
           <NavLink className={navbarClass} to="/cart">
             <BsCartFill /> Cart
           </NavLink>
-          {!isValidUser ? (
-            <NavLink className={navbarClass} to="/login">
-              <BsFillPersonFill /> Login/SignUp
-            </NavLink>
-          ) : (
+          {isValidUser ? (
             <div className={style.navbar_login}>
               <BsFillPersonFill />
               <span>{user?.name}</span>
               <FaCaretDown />
               <span onClick={handlerLogout}>(Logout)</span>
             </div>
+          ) : (
+            <NavLink className={navbarClass} to="/login">
+              <BsFillPersonFill /> Login/SignUp
+            </NavLink>
           )}
         </div>
       </div>

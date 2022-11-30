@@ -1,13 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
 import {
+  getTolocalStorage,
   removeTolocalStorage,
   saveToLocalStorage,
 } from '../Component/Hook/LocalStrong'
 
 const initialState = {
-  user: {},
+  user: getTolocalStorage('user') ? getTolocalStorage('user') : {},
   users: [],
-  isValidUser: false,
+  isValidUser: getTolocalStorage('isValidUser')
+    ? getTolocalStorage('isValidUser')
+    : false,
 }
 
 const userSlice = createSlice({
@@ -22,12 +25,13 @@ const userSlice = createSlice({
     onLogin(state, action) {
       state.isValidUser = true
       state.user = action.payload
-
+      saveToLocalStorage('isValidUser', state.isValidUser)
       saveToLocalStorage('user', state.user)
     },
     onLogout(state) {
       state.isValidUser = false
       removeTolocalStorage('user')
+      saveToLocalStorage('isValidUser', state.isValidUser)
     },
   },
 })

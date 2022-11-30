@@ -11,7 +11,6 @@ function Cart() {
   const isValidUser = useSelector((state) => state.user.isValidUser)
   const navigate = useNavigate()
 
-  console.log(isValidUser)
   return (
     <React.Fragment>
       (

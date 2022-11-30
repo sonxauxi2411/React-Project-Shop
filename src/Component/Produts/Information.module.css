@@ -5,4 +5,9 @@
   justify-content: space-around;
   background-color: rgb(242 242 242);
   padding: 60px 0px;
+ 
+}
+
+.info span:first-child{
+   letter-spacing: 3px;
 }

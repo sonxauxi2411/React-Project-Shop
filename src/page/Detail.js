@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import style from './Detail.module.css'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Button from '../Layout/UI/Button'
 import Card from '../Layout/UI/Card'
 import { formatCash } from '../Component/Hook/formtCash'
@@ -23,17 +23,22 @@ function Detail() {
   const handlerImg = (e) => {
     setImgSrc(e.target.src)
   }
-
+  const navigate = useNavigate()
+  const counter = useSelector((state) => state.quantity.counter)
   const handlerAddToCart = () => {
     dispatch(
       cartListAction.addCart({
         name: product.name,
         img: product.img1,
         price: product.price,
+        qty: counter,
         id: product._id.$oid,
+        total: `${product.price * counter}`,
       }),
     )
+    navigate('/cart')
   }
+  console.log(product)
   return (
     <Card>
       <div className={style.detail}>
@@ -76,15 +81,19 @@ function Detail() {
 
           <div className={style.detail_info}>
             <h1>{product?.name}</h1>
-            <span>{formatCash(product?.price)} VND</span>
-            <span>{product?.short_desc}</span>
+            <span className="fs-4 text-black-50 fst-italic">
+              {formatCash(product?.price)} VND
+            </span>
+            <span className={style.detail__long_desc}>
+              {product?.short_desc}
+            </span>
             <span>
               <b>CATEGORY:</b> {product?.category}
             </span>
             <div className={style.detail_btn}>
               <div className={style.detail_btn_page}>
                 <span className="text-black-50">Quantity</span>
-                <QuantityCounter />
+                <QuantityCounter onData={product} />
               </div>
               <Button onClick={handlerAddToCart}>Add to cart</Button>
             </div>
@@ -94,12 +103,11 @@ function Detail() {
           <div>
             <Button>DESCRIPTION</Button>
           </div>
-
-          <p>Product Description</p>
-          <span>{product?.long_desc}</span>
+          <p className="fs-4 fw-semibold text-uppercase">Product Description</p>
+          <pre className={style.detail__long_desc}>{product?.long_desc}</pre>
         </div>
         <div>
-          <h2>Related Product</h2>
+          <h2 className="text-uppercase">Related Products</h2>
           <div className="d-flex align-items-center gap-4 py-4">
             {relatedProducts?.map((item) => (
               <div className="d-flex flex-column ">

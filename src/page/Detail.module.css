@@ -16,6 +16,7 @@
 .detail_btn {
   display: flex;
   align-items: center;
+ 
 }
 
 .detail_btn input {
@@ -26,7 +27,7 @@
   display: flex;
   align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.192);
-  padding: 5px 10px;
+  padding: 7px 10px;
   gap:50px
  
 }
@@ -39,6 +40,12 @@
   padding: 50px 0px;
 }
 
-.detail__desc pre {
-  overflow-wrap: break-word;
+.detail__long_desc{
+  display: flex;
+  width: 100%;
+  font-family:sans-serif;
+  overflow: hidden;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.705);
+  line-height: 1.6;
 }

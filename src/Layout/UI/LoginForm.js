@@ -34,7 +34,6 @@ function LoginForm() {
       navigate('/')
     }
   }
-  console.log(isValidUser)
 
   return (
     <Card>

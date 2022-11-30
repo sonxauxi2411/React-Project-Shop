@@ -1,4 +1,5 @@
 import React from 'react'
+import BackgroundBanner from '../Component/Banner/BackgroundBanner'
 
 import ProductList from '../Component/ProductList/ProductList'
 
@@ -8,10 +9,7 @@ function Shop() {
   return (
     <Card>
       <div className="d-flex flex-column gap-5">
-        <div className="d-flex justify-content-between bg-secondary bg-gradient p-5 text-light text-uppercase">
-          <h1>Shop</h1>
-          <p>Shop</p>
-        </div>
+        <BackgroundBanner name="shop" title="shop" />
         <ProductList />
       </div>
     </Card>

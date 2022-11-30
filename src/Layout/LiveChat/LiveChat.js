@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import style from './LiveChat.module.css'
 import IconAdmin from '../../Resource/admin.jpg'
-
+import { ImLink } from 'react-icons/im'
+import { BsFillEmojiSmileFill } from 'react-icons/bs'
+import { BsFillCursorFill } from 'react-icons/bs'
 function LiveChat() {
   return (
     <div className={style.liveChat}>
@@ -15,16 +17,50 @@ function LiveChat() {
       </div>
 
       <div className={style.box_chat}>
-        <span className="text-end">xin chào</span>
-        <span className="text-end">làm thế nào để xem được sản phẩm</span>
-        <span>
-          <img src={IconAdmin} alt="admin" width="30px" /> ADMIN: chào bạn !
-        </span>
-        <span> ADMIN: bạn có thể vào mục shop để xem sản phẩm</span>
+        <div className="text-end  p-1">
+          <span className=" bg-primary bg-gradient text-light p-2  rounded">
+            xin chào
+          </span>
+        </div>
+        <div className="text-end p-1">
+          <span className=" bg-primary bg-gradient text-light p-2 rounded ">
+            làm thế nào để xem được sản phẩm
+          </span>
+        </div>
+        <div className="d-flex align-items-center">
+          <div>
+            <img src={IconAdmin} alt="admin" width="30px" />
+          </div>
+
+          <span className="bg-dark p-2 text-dark bg-opacity-10">
+            ADMIN: chào bạn !
+          </span>
+        </div>
+        <div className="d-flex align-items-center">
+          <div>
+            <img src={IconAdmin} alt="admin" width="30px" />
+          </div>
+
+          <span className="bg-dark p-2 text-dark bg-opacity-10">
+            ADMIN: bạn có thể vào mục shop để xem sản phẩm !
+          </span>
+        </div>
       </div>
 
-      <div>
-        <input />
+      <div className={style.box_chat_input}>
+        <img src={IconAdmin} alt="admin" width="30px" />
+        <input placeholder="Enter Message!" />
+        <div className="d-flex gap-2 align-items-center text-black-50 ">
+          <button>
+            <ImLink />
+          </button>
+          <button>
+            <BsFillEmojiSmileFill />
+          </button>
+          <button>
+            <BsFillCursorFill />
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -12,3 +12,10 @@ td, th {
     text-decoration: none;
     color: black;
 }
+.remove{
+    color: #ccc;
+}
+.remove:hover {
+    cursor: pointer;
+    color: black;
+}

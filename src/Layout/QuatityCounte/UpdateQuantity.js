@@ -3,27 +3,28 @@ import { BsCaretRightFill } from 'react-icons/bs'
 import { BsFillCaretLeftFill } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartListAction } from '../../Redux/CartList'
-import { quantiyAction } from '../../Redux/Quantity'
 
-function QuantityCounter(props) {
-  const counter = useSelector((state) => state.quantity.counter)
-
+function UpdateQuantity(props) {
   const dispatch = useDispatch()
 
   const handlerIncrement = () => {
-    dispatch(quantiyAction.increment())
+    dispatch(cartListAction.incressQty({ id: props.onData.id }))
   }
   const handlerDectement = () => {
-    dispatch(quantiyAction.dectement())
+    dispatch(cartListAction.dectementQty({ id: props.onData.id }))
   }
 
   return (
     <div className="d-flex justify-content-center align-items-center gap-3">
-      <BsFillCaretLeftFill
-        style={{ cursor: 'pointer' }}
-        onClick={handlerDectement}
-      />
-      <span>{counter}</span>
+      {props.onData.qty !== 0 ? (
+        <BsFillCaretLeftFill
+          style={{ cursor: 'pointer' }}
+          onClick={handlerDectement}
+        />
+      ) : (
+        ''
+      )}
+      <span>{props.onData.qty}</span>
       <BsCaretRightFill
         style={{ cursor: 'pointer' }}
         onClick={handlerIncrement}
@@ -32,4 +33,4 @@ function QuantityCounter(props) {
   )
 }
 
-export default QuantityCounter
+export default UpdateQuantity

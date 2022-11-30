@@ -1,21 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GrFormNextLink } from 'react-icons/gr'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { GrFormPreviousLink } from 'react-icons/gr'
 import style from './ListCart.module.css'
 import { formatCash } from '../Hook/formtCash'
-import QuantityCounter from '../../Layout/QuatityCounte/QuantityCounter'
+
 import { Link } from 'react-router-dom'
 import { cartListAction } from '../../Redux/CartList'
-import { getTolocalStorage } from '../Hook/LocalStrong'
-function ListCart() {
+import { getTolocalStorage, saveToLocalStorage } from '../Hook/LocalStrong'
+import UpdateQuantity from '../../Layout/QuatityCounte/UpdateQuantity'
+function ListCart(props) {
   const dispatch = useDispatch()
-  // const listProductCartS = useSelector((state) => state.listCart.listProducts)
-  const listProductCartS = getTolocalStorage('CartList')
+
+  const listProductCartS = useSelector((state) => state.listCart.listProducts)
+  // console.log(listProductCartS)
+
   const handlerRemove = (index) => {
     dispatch(cartListAction.removeCart(index))
   }
+  // const listProductCartS = getTolocalStorage('CartList')
+
   return (
     <div className={style.cart__list}>
       <table>
@@ -36,14 +41,15 @@ function ListCart() {
             <td>{item.name}</td>
             <td>{formatCash(item.price)} VND</td>
             <td>
-              <QuantityCounter onData={listProductCartS} />
+              <UpdateQuantity onData={item} />
             </td>
-            <td>{item.total} </td>
+            <td> {formatCash(`${item.total}`)} VND </td>
             <td>
               <BsFillTrashFill
                 onClick={() => {
                   handlerRemove(index)
                 }}
+                className={style.remove}
               />
             </td>
           </tr>

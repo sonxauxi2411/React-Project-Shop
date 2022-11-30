@@ -20,10 +20,14 @@ function RegisterForm() {
   const userArr = getTolocalStorage('userArr')
 
   const findUserArr = userArr?.find((user) => user.email === email)
-  console.log(findUserArr)
+
   const handlerSubmit = (e) => {
     e.preventDefault()
-    if (name.length < 6) {
+    if (name === '') {
+      console.log('rỗng')
+      setIsvalid(false)
+      setError('Vui lòng khôn được để trống !')
+    } else if (name.length < 3) {
       setIsvalid(false)
       setError('name ít nhất 6 ký tự !')
     } else if (password.length < 8) {
@@ -31,9 +35,8 @@ function RegisterForm() {
       setError('password ít nhất 8 ký tự!')
     } else if (phone.length !== 10) {
       setIsvalid(false)
-      setError('vui lòng nhập đúng số điện thoại')
-    }
-    if (findUserArr) {
+      setError('vui lòng nhập đúng số điện thoại !')
+    } else if (findUserArr) {
       setIsvalid(false)
       setError('Email đã có người sự dụng !')
     } else {
@@ -46,7 +49,7 @@ function RegisterForm() {
   return (
     <Card>
       <div className={style.banner__register}>
-        <div className={style.form__login}>
+        <div className={style.form__register}>
           <form onSubmit={handlerSubmit}>
             <h2 className="mb-4">Sign Up</h2>
 
