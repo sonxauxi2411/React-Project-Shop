@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/React-Project-Shop/static/css/main.9d75a383.css",
-    "main.js": "/React-Project-Shop/static/js/main.95d9f285.js",
+    "main.css": "/React-Project-Shop/static/css/main.20e7dd4a.css",
+    "main.js": "/React-Project-Shop/static/js/main.bcc4c6b8.js",
     "static/js/787.13f81209.chunk.js": "/React-Project-Shop/static/js/787.13f81209.chunk.js",
     "static/media/admin.jpg": "/React-Project-Shop/static/media/admin.0401c91fd0717d54d04d.jpg",
     "static/media/product_2.png": "/React-Project-Shop/static/media/product_2.1bc52f8922d488cead68.png",
@@ -11,12 +11,12 @@
     "static/media/product_5.png": "/React-Project-Shop/static/media/product_5.b963def7555b7544d220.png",
     "static/media/banner1.jpg": "/React-Project-Shop/static/media/banner1.4a22881c941f7b645fa8.jpg",
     "index.html": "/React-Project-Shop/index.html",
-    "main.9d75a383.css.map": "/React-Project-Shop/static/css/main.9d75a383.css.map",
-    "main.95d9f285.js.map": "/React-Project-Shop/static/js/main.95d9f285.js.map",
+    "main.20e7dd4a.css.map": "/React-Project-Shop/static/css/main.20e7dd4a.css.map",
+    "main.bcc4c6b8.js.map": "/React-Project-Shop/static/js/main.bcc4c6b8.js.map",
     "787.13f81209.chunk.js.map": "/React-Project-Shop/static/js/787.13f81209.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d75a383.css",
-    "static/js/main.95d9f285.js"
+    "static/css/main.20e7dd4a.css",
+    "static/js/main.bcc4c6b8.js"
   ]
 }
