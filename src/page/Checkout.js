@@ -10,7 +10,7 @@ import { formatCash } from '../Component/Hook/formtCash'
 
 function Checkout() {
   const listCart = useSelector((state) => state.listCart)
-  console.log(listCart.listProducts)
+
   return (
     <Card>
       <div className={style.checkout}>

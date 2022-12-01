@@ -19,3 +19,6 @@ td, th {
     cursor: pointer;
     color: black;
 }
+.ListCart_link a:hover{
+    color: brown !important;
+}

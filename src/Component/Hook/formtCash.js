@@ -1,7 +1,7 @@
 export function formatCash(str) {
   return str
-    ?.split('')
-    ?.reverse()
+    ?.split('') //string
+    ?.reverse() //đảo ngược
     ?.reduce((prev, next, index) => {
       return (index % 3 ? next : next + '.') + prev
     })

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GrFormNextLink } from 'react-icons/gr'
 import { BsFillTrashFill } from 'react-icons/bs'
@@ -8,7 +8,7 @@ import { formatCash } from '../Hook/formtCash'
 
 import { Link } from 'react-router-dom'
 import { cartListAction } from '../../Redux/CartList'
-import { getTolocalStorage, saveToLocalStorage } from '../Hook/LocalStrong'
+
 import UpdateQuantity from '../../Layout/QuatityCounte/UpdateQuantity'
 function ListCart(props) {
   const dispatch = useDispatch()
@@ -21,6 +21,8 @@ function ListCart(props) {
   }
   // const listProductCartS = getTolocalStorage('CartList')
 
+  const isListProductsCart = listProductCartS.length > 0
+  console.log(isListProductsCart)
   return (
     <div className={style.cart__list}>
       <table>
@@ -55,16 +57,18 @@ function ListCart(props) {
           </tr>
         ))}
       </table>
-      <div className="d-flex justify-content-between">
+      <div className={`d-flex justify-content-between ${style.ListCart_link}`}>
         <Link to="/shop">
           <GrFormPreviousLink /> Continie Shopping
         </Link>
-        <Link
-          to="/checkout"
-          className="bg-light bg-gradient p-2 text-black-50 "
-        >
-          Proceed to Checkout <GrFormNextLink />
-        </Link>
+        {isListProductsCart && (
+          <Link
+            to="/checkout"
+            className="bg-light bg-gradient p-2 text-black-50 "
+          >
+            Proceed to Checkout <GrFormNextLink />
+          </Link>
+        )}
       </div>
     </div>
   )

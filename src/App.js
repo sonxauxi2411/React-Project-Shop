@@ -12,6 +12,7 @@ import Footer from './Layout/Footer/Footer'
 import LiveChat from './Layout/LiveChat/LiveChat'
 import { BsChatRightDots } from 'react-icons/bs'
 import { useState } from 'react'
+import NotPage from './page/NotPage'
 
 function App() {
   const [isLiveChatBox, setIsLiveChatBox] = useState(false)
@@ -29,6 +30,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotPage />} />
       </Routes>
 
       <Footer />
